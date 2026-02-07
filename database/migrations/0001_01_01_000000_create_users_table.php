@@ -17,7 +17,7 @@ return new class extends Migration
             //menambahkan nis buat dia null agar bisa kosong coy
             $table->string('nis')->nullable()->unique();
             //menabahkan role
-            $table->string('role')->default('user');
+            $table->string('role')->default('siswa');
             $table->string('email')->nullable()->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

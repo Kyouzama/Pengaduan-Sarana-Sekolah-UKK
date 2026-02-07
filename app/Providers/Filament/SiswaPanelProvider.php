@@ -39,7 +39,7 @@ class SiswaPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Siswa/Widgets'), for: 'App\Filament\Siswa\Widgets')
             ->widgets([
                 AccountWidget::class,
-                FilamentInfoWidget::class,
+                // FilamentInfoWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,

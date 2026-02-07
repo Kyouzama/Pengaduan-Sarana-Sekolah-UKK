@@ -2,10 +2,16 @@
 
 namespace App\Filament\Resources\Aspirasis\Tables;
 
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
+use App\Models\Kategori;
 use Filament\Tables\Table;
+use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Schemas\Components\View;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Schemas\Components\Image;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 
 class AspirasisTable
 {
@@ -13,13 +19,46 @@ class AspirasisTable
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('kategori.ket_kategori')
+                    ->label('Kategori')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('user.name')
+                    ->label('Nama Pengguna')
+                    ->sortable(),
+                TextColumn::make('status')
+                    ->badge(),
+                TextColumn::make('user.nis')
+                    ->label('NIS')
+                    ->sortable(),
+                TextColumn::make('keterangan')
+                    ->html()
+                    ->limit(50)
+                    ->wrap()
+                    ->searchable(),
+                ImageColumn::make('foto')
+                    ->disk('public')
+                    ->width('auto')
+                    ->height(100)
+                    ->label('Foto')
+                    ->searchable(),
+                TextColumn::make('lokasi')
+                    ->searchable(),
+                TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
             ])
             ->recordActions([
                 EditAction::make(),
+                ViewAction::make()
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
