@@ -51,6 +51,8 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+                //untuk checkrolenya
+                'role:admin',
             ])
             ->authMiddleware([
                 Authenticate::class,

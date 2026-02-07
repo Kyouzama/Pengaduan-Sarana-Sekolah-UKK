@@ -51,6 +51,8 @@ class SiswaPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+                //untuk checkrolenya
+                'role:siswa'
             ])
             ->authMiddleware([
                 Authenticate::class,

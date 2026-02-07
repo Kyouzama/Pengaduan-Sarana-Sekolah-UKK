@@ -39,7 +39,7 @@ class LoginCustom extends Login
         protected function throwFailureValidationException(): never
     {
         throw ValidationException::withMessages([
-            'data.login' => __('filament-panels::auth/pages/login.messages.failed'),
+            'data.nis' => __('filament-panels::auth/pages/login.messages.failed'),
         ]);
     }
 

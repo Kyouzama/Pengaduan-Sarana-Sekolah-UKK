@@ -13,8 +13,8 @@ class KategoriPolicy
      */
     public function viewAny(User $user): bool
     {
-        
-        return $user->isAdmin();
+
+        return true;
     }
 
     /**
@@ -22,7 +22,7 @@ class KategoriPolicy
      */
     public function view(User $user, Kategori $kategori): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -30,7 +30,7 @@ class KategoriPolicy
      */
     public function create(User $user): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -38,7 +38,7 @@ class KategoriPolicy
      */
     public function update(User $user, Kategori $kategori): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -46,7 +46,7 @@ class KategoriPolicy
      */
     public function delete(User $user, Kategori $kategori): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -54,7 +54,7 @@ class KategoriPolicy
      */
     public function restore(User $user, Kategori $kategori): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -62,6 +62,6 @@ class KategoriPolicy
      */
     public function forceDelete(User $user, Kategori $kategori): bool
     {
-        return false;
+        return true;
     }
 }
