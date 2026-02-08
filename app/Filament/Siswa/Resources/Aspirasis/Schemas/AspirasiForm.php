@@ -19,6 +19,14 @@ class AspirasiForm
     {
         return $schema
             ->components([
+
+                RichEditor::make('feedback')
+                    ->label('Feedback untuk Siswa')
+                    ->visible(fn (string $operation) => $operation === 'view' || auth()->user()->is_admin)
+                    ->nullable()
+                    ->columnSpan('full')
+                    ->extraInputAttributes(['style' => 'min-height: 200px;']),
+
                 Section::make('Aspirasi yang ingin disampaikan')
                     ->schema([
                 TextInput::make('judul')
@@ -35,7 +43,7 @@ class AspirasiForm
                     ->relationship('user', 'name')
                     ->default(auth()->id())
                     ->disabled()
-                    ->dehydrated() // Penting agar nilai tetap dikirim ke database saat simpan
+                    ->dehydrated()
                     ->required(),
                 TextInput::make('status')
                     ->readOnly()

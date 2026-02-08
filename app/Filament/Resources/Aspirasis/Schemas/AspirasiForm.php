@@ -19,6 +19,17 @@ class AspirasiForm
     {
         return $schema
             ->components([
+                Section::make('Berikan Feedback untuk Siswa')
+                    ->schema([
+                RichEditor::make('feedback')
+                    ->label('Feedback untuk Siswa')
+                    ->fileAttachmentsDisk('public')
+                    ->fileAttachmentsDirectory('attachments')
+                    ->fileAttachmentsVisibility('public')
+                    ->nullable()
+                    ->columnSpanFull()
+                    ->extraInputAttributes(['style' => 'min-height: 200px;']),
+                    ])->columnSpanFull(),
                 Section::make('Aspirasi yang ingin disampaikan')
                     ->schema([
                 TextInput::make('judul')

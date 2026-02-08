@@ -17,7 +17,9 @@ return new class extends Migration
             $table->foreignId('id_user')->constrained('users', 'id')->onDelete('cascade');
             $table->string('judul',100);
             $table->enum('status', ['Menunggu', 'Proses', 'Selesai'])->default('Menunggu')->nullable();
-            $table->string('keterangan');
+            //feedback jangan string ngawur malah erro ubah text aduhai
+            $table->text('feedback')->nullable();
+            $table->text('keterangan');
             $table->string('foto')->nullable();
             $table->string('lokasi')->nullable();
             $table->timestamps();
