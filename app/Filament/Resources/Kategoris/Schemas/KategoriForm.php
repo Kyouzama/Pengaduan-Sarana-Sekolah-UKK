@@ -2,8 +2,9 @@
 
 namespace App\Filament\Resources\Kategoris\Schemas;
 
-use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Section;
 
 class KategoriForm
 {
@@ -11,8 +12,12 @@ class KategoriForm
     {
         return $schema
             ->components([
+                Section::make('Masukan Kategori Baru')
+                    ->schema([
                 TextInput::make('ket_kategori')
+                    ->label('Keterangan Kategori')
                     ->required(),
+                    ])->columnSpanFull(),
             ]);
     }
 }

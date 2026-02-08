@@ -10,6 +10,7 @@ use Filament\Actions\ViewAction;
 use Filament\Schemas\Components\View;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
+use GrahamCampbell\ResultType\Success;
 
 use function Livewire\wrap;
 
@@ -19,6 +20,10 @@ class AspirasisTable
     {
         return $table
             ->columns([
+                TextColumn::make('judul')
+                    ->label('Judul Aspirasi')
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('kategori.ket_kategori')
                     ->label('Kategori')
                     ->sortable(),
@@ -26,7 +31,13 @@ class AspirasisTable
                     ->label('Nama User')
                     ->sortable(),
                 TextColumn::make('status')
-                    ->badge(),
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        'Menunggu' => 'warning',
+                        'Proses' => 'info',
+                        'Selesai' => 'success',
+                        default => 'gray',
+                    }),
                 TextColumn::make('keterangan')
                     ->html()
                     ->limit(50)

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id('id_aspirasi');
             $table->foreignId('id_kategori')->constrained('kategoris', 'id_kategori')->onDelete('cascade');
             $table->foreignId('id_user')->constrained('users', 'id')->onDelete('cascade');
+            $table->string('judul',100);
             $table->enum('status', ['Menunggu', 'Proses', 'Selesai'])->default('Menunggu')->nullable();
             $table->string('keterangan');
             $table->string('foto')->nullable();

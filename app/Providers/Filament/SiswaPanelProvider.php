@@ -27,6 +27,7 @@ class SiswaPanelProvider extends PanelProvider
         return $panel
             ->id('siswa')
             ->path('siswa')
+            ->brandName('Pengaduan Sarana Sekolah')
             ->login(LoginCustom::class)
             ->colors([
                 'primary' => Color::Amber,

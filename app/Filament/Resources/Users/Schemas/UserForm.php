@@ -2,10 +2,11 @@
 
 namespace App\Filament\Resources\Users\Schemas;
 
-use Filament\Forms\Components\DateTimePicker;
+use Filament\Schemas\Schema;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Schema;
+use Filament\Schemas\Components\Section;
+use Filament\Forms\Components\DateTimePicker;
 
 class UserForm
 {
@@ -13,21 +14,31 @@ class UserForm
     {
         return $schema
             ->components([
-                TextInput::make('name')
-                    ->required(),
-                TextInput::make('nis'),
-                Select::make('role')
-                    ->options([
-                        'admin' => 'Admin',
-                        'siswa' => 'Siswa',
-                    ])
-                    ->required(),
-                TextInput::make('email')
-                    ->label('Email address')
-                    ->email(),
-                TextInput::make('password')
-                    ->password()
-                    ->required(),
+                Section::make('Membuat Akun User Baru ( Siswa / Admin )')
+                    ->schema([
+                        Select::make('role')
+                            ->options([
+                                'admin' => 'Admin',
+                                'siswa' => 'Siswa',
+                            ])
+                            ->required(),
+                        TextInput::make('name')
+                            ->required(),
+                        Section::make('Jika Rolenya Siswa, Wajib Mengisi NIS')
+                            ->description('Untuk siswa, dikarna siswa login menggunakan NIS sebagai username, Jika anda sedang membuat user dengan role admin ini tidak perlu diisi')
+                            ->schema([
+
+                                TextInput::make('nis'),
+                            ]),
+                        TextInput::make('email')
+                            ->label('Email address')
+                            ->email(),
+                        TextInput::make('password')
+                            ->password()
+                            ->required(),
+
+                    ])->columnSpanFull(),
+
             ]);
     }
 }

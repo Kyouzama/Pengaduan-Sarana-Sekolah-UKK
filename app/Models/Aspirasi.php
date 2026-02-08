@@ -23,6 +23,7 @@ class Aspirasi extends Model
         return $this->belongsTo(Kategori::class, 'id_kategori', 'id_kategori');
     }
 
+    // Global scope untuk membatasi data berdasarkan role user || Personal data untuk User dan Admin can see anything
     protected static function booted()
 {
     static::addGlobalScope('ownedByRole', function ($builder) {

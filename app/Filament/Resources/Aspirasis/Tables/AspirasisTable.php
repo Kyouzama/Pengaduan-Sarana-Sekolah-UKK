@@ -19,6 +19,10 @@ class AspirasisTable
     {
         return $table
             ->columns([
+                TextColumn::make('judul')
+                    ->label('Judul Aspirasi')
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('kategori.ket_kategori')
                     ->label('Kategori')
                     ->numeric()
@@ -27,7 +31,13 @@ class AspirasisTable
                     ->label('Nama Pengguna')
                     ->sortable(),
                 TextColumn::make('status')
-                    ->badge(),
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        'Menunggu' => 'warning',
+                        'Proses' => 'info',
+                        'Selesai' => 'success',
+                        default => 'gray',
+                    }),
                 TextColumn::make('user.nis')
                     ->label('NIS')
                     ->sortable(),

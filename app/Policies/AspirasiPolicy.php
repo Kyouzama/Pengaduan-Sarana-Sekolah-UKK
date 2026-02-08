@@ -21,7 +21,7 @@ class AspirasiPolicy
      */
     public function view(User $user, Aspirasi $aspirasi): bool
     {
-        return $user->id === $aspirasi->id_user;
+        return $user->id === $aspirasi->id_user || $user->isAdmin();
     }
 
     /**
@@ -37,7 +37,7 @@ class AspirasiPolicy
      */
     public function update(User $user, Aspirasi $aspirasi): bool
     {
-        return $user->id === $aspirasi->id_user;
+        return $user->id === $aspirasi->id_user || $user->isAdmin();
     }
 
     /**
@@ -45,7 +45,7 @@ class AspirasiPolicy
      */
     public function delete(User $user, Aspirasi $aspirasi): bool
     {
-        return $user->id === $aspirasi->id_user;
+        return $user->id === $aspirasi->id_user || $user->isAdmin();
     }
 
     /**
