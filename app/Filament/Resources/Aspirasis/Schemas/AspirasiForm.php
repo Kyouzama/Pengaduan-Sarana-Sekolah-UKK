@@ -41,7 +41,7 @@ class AspirasiForm
                 Select::make('status')
                     ->options([
                         'Menunggu' => 'Menunggu',
-                        'Diproses' => 'Diproses',
+                        'Proses' => 'Proses',
                         'Selesai' => 'Selesai',
                     ])
                     ->required(),

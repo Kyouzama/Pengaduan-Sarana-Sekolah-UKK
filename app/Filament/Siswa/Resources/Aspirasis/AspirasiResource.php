@@ -9,6 +9,7 @@ use App\Filament\Siswa\Resources\Aspirasis\Schemas\AspirasiForm;
 use App\Filament\Siswa\Resources\Aspirasis\Tables\AspirasisTable;
 use App\Models\Aspirasi;
 use BackedEnum;
+use BladeUI\Icons\Components\Icon;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -18,7 +19,8 @@ class AspirasiResource extends Resource
 {
     protected static ?string $model = Aspirasi::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+
+    protected static string | BackedEnum | null $navigationIcon = Heroicon::OutlinedDocumentText;
 
     public static function form(Schema $schema): Schema
     {

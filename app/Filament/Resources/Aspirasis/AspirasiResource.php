@@ -19,7 +19,22 @@ class AspirasiResource extends Resource
 
     protected static ?string $model = Aspirasi::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static ?string $navigationLabel = 'Aspirasi Siswa';
+
+    public static function getNavigationBadgeTooltip(): ?string
+    {
+        return 'Semua Total Aspirasi Siswa';
+    }
+
+
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
+
+    protected static string | BackedEnum | null $navigationIcon = Heroicon::OutlinedAcademicCap;
 
     public static function form(Schema $schema): Schema
     {
@@ -46,6 +61,4 @@ class AspirasiResource extends Resource
             'edit' => EditAspirasi::route('/{record}/edit'),
         ];
     }
-
-
 }

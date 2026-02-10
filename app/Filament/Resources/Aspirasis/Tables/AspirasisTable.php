@@ -7,6 +7,7 @@ use Filament\Tables\Table;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Schemas\Components\View;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Schemas\Components\Image;
@@ -68,7 +69,8 @@ class AspirasisTable
             ])
             ->recordActions([
                 EditAction::make(),
-                ViewAction::make()
+                ViewAction::make(),
+                DeleteAction::make()
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
