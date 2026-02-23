@@ -1,3 +1,38 @@
+> [!WARNING]
+> Sebelum Menjalankan Project Kalian Wajib Menginstall Composer
+>
+> ```
+> composer install
+> ```
+>
+> Membuat Database Di .env
+>```
+>DB_CONNECTION=mysql
+>DB_HOST=127.0.0.1
+>DB_PORT=3306
+>DB_DATABASE=nama_database
+>DB_USERNAME=root
+>DB_PASSWORD=
+>```
+>
+> Membuat Table Yang Ada Di Migration Laravel
+>
+> ```
+> php artisan migrate
+> ```
+> 
+> Membuat Penyimpanan Foto & Merubah Url .env
+>
+> ```
+> php artisan storage:link
+> ```
+>
+> ```
+> APP_URL=http://127.0.0.1:8000
+> ```
+>
+
+
 > [!NOTE]
 > **Bagaimana Cara Kerja Role**
 >
@@ -6,7 +41,7 @@
 > - Memberikan Hak Akses Role Pada Panel Yang Di-inginkan Pada  Providers
 
 > [!Note]
-> **Bagaiamana Cara Kerja Relasi & Primary Key**
+> **Bagaimana Cara Kerja Relasi & Primary Key**
 >
 >  Note : Jika Primary Key Wajib Menambahkan Di Model
 > 
