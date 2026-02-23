@@ -6,7 +6,7 @@
 > - Memberikan Hak Akses Role Pada Panel Yang Di-inginkan Pada  Providers
 
 > [!Note]
-> **Baaiamana Cara Kerja Relasi & Primary Key**
+> **Bagaiamana Cara Kerja Relasi & Primary Key**
 >
 >  Note : Jika Primary Key Wajib Menambahkan Di Model
 > 
