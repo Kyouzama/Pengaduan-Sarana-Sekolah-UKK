@@ -1,3 +1,7 @@
+>[!NOTE]
+>
+> Hal yang wajib untuk mempelajari laravel dan filament yaitu mempelajari class dan ...
+
 > [!WARNING]
 > Sebelum Menjalankan Project Kalian Wajib Menginstall Composer
 >
@@ -62,6 +66,65 @@
 > ```
 > 
 
+>[!NOTE]
+>
+>**Notification Filament**
+>
+> ** Dokumentasi yang wajib di pelajari untuk ini**
+>
+> https://laravel.com/docs/12.x/eloquent#observers
+>
+> https://filamentphp.com/docs/notifications/database-notifications
+>
+> Install Table Notif
+> 
+>```
+> php artisan make:notifications-table
+>```
+>
+> Aktifkan database notif
+>
+>```
+>use Filament\Panel;
+>
+>public function panel(Panel $panel): Panel
+>{
+>    return $panel
+>        // ...
+>        ->databaseNotifications();
+>}
+>```
+> Membuat Observer **Contoh Menggunakan User**
+> ```   
+> php artisan make:observer UserObserver --model=User 
+> ```
+>
+> Membuat Notif yang akan di sampaikan bisa di check di **Dokumentasi Filament**
+>
+> ```
+> use Filament\Notifications\Notification;
+>
+>$recipient = auth()->user();
+>
+>Notification::make()
+>    ->title('Saved successfully')
+>    ->sendToDatabase($recipient);
+>```
+>
+>Menambahkan Observer Di Model
+>
+>```
+>use Illuminate\Database\Eloquent\Attributes\ObservedBy;
+>
+>#[ObservedBy(UserObserver::class)]
+>
+>```
+>
+> Untuk Check Queue Work
+>
+>```
+> php artisan queue:work
+>```
 
 
 
