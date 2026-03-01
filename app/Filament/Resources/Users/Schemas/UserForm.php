@@ -28,7 +28,12 @@ class UserForm
                             ->description('Untuk siswa, dikarna siswa login menggunakan NIS sebagai username, Jika anda sedang membuat user dengan role admin ini tidak perlu diisi')
                             ->schema([
 
-                                TextInput::make('nis'),
+                                TextInput::make('nis')
+                                ->unique()
+                                ->validationMessages([
+                                    'unique' => 'Nis ini sudah terdaftar'
+                                ])
+
                             ]),
                         TextInput::make('email')
                             ->label('Email address')
