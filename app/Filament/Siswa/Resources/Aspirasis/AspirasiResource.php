@@ -20,7 +20,7 @@ class AspirasiResource extends Resource
     protected static ?string $model = Aspirasi::class;
 
 
-    protected static string | BackedEnum | null $navigationIcon = Heroicon::OutlinedDocumentText;
+    protected static string | BackedEnum | null $navigationIcon = Heroicon::OutlinedClipboardDocumentList;
 
     public static function form(Schema $schema): Schema
     {
