@@ -29,33 +29,42 @@ class AspirasiForm
                     ->nullable()
                     ->columnSpanFull()
                     ->extraInputAttributes(['style' => 'min-height: 200px;']),
-                    ])->columnSpanFull(),
-                Section::make('Aspirasi yang ingin disampaikan')
-                    ->schema([
-                TextInput::make('judul')
-                    ->label('Judul Aspirasi')
-                    ->placeholder('Masukkan judul aspirasi')
-                    ->maxLength(100)
-                    ->required(),
 
-                Select::make('status')
+                Section::make('Status')
+                    ->schema([
+                    Select::make('status')
+                    ->label('Status saat ini')
                     ->options([
                         'Menunggu' => 'Menunggu',
                         'Proses' => 'Proses',
                         'Selesai' => 'Selesai',
                     ])
+                    ->required()
+                    ])
+                    ])->columnSpanFull(),
+
+                Section::make('Aspirasi yang ingin disampaikan')
+                    ->schema([
+                TextInput::make('judul')
+                    ->disabled()
+                    ->label('Judul Aspirasi')
+                    ->placeholder('Masukkan judul aspirasi')
+                    ->maxLength(100)
                     ->required(),
                 Select::make('id_kategori')
+                    ->disabled()
                     ->relationship('kategori', 'ket_kategori')
                     ->preload()
                     ->searchable()
                     ->required(),
                 Select::make('id_user')
+                    ->disabled()
                     ->relationship('user', 'name')
                     ->preload()
                     ->searchable()
                     ->required(),
                 Textarea::make('lokasi')
+                    ->disabled()
                     ->label('Lokasi Kejadian')
                     ->placeholder('Contoh: Kantin Sekolah, Lantai 2')
                     ->rows(3)
@@ -65,6 +74,7 @@ class AspirasiForm
                 Section::make('Masukan Foto Pendukung (jika ada)')
                     ->schema([
                 FileUpload::make('foto')
+                    ->disabled()
                     ->image()
                     ->imageEditor()
                     ->openable(true)
@@ -76,6 +86,7 @@ class AspirasiForm
                 Section::make()
                     ->schema([
                 RichEditor::make('keterangan')
+                    ->disabled()
                     ->required()
                     ->columnSpan('full')
                     ->extraInputAttributes(['style' => 'min-height: 200px;']),
